@@ -1,0 +1,93 @@
+/*--- Whole page style ---*/
+:root{
+    --bg: #f8f3ef;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6462;
+    --border: #eee;
+    --accent: #f3a6a0;
+    --hero1: #fff0ea;
+    --hero2: #fde8e3;
+    --radius: 20px;
+    --shadow: 0 30px 60px rgba(0,0,0,0.08);
+  }
+  
+  *{ box-sizing: border-box; }
+  
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  /*--- SubHeader style ---*/
+
+.page-wrapper {
+    width: 1100px;
+    margin: 40px 0;
+    padding: auto;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow); 
+}
+
+ 
+.subheader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 1000px;
+    margin: 40px auto;               /* top/bottom 40px, left/right auto để căn giữa */
+    background: var(--bg);           /* màu nền trắng cho subheader  */
+    padding: 20px;                   /* top, right, bottom, left */
+    border-radius: 20px;            /* bo góc cho subheader */
+    box-shadow: var(--shadow)
+  }
+  
+  .logo{
+    color:#7E4F4F;
+    font-size: 30px;
+    font-weight: 300;         
+    font-family: serif;
+    letter-spacing: 2px;
+  }
+  
+  /* NAV */
+  .nav{
+    display: flex;
+    gap: 30px;                 /* khoảng cách giữa Home/Journal/... */
+    margin-left: auto;         /* đẩy nav về phía button */
+    align-items: center;
+  }
+  
+  .nav a{
+    margin: 0;                 /* bỏ margin cũ vì đã dùng gap */
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  
+  /* BUTTON */
+  .contact{
+    background: var(--accent);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 15px;
+    cursor: pointer;
+    color: rgb(255,255,255);
+  }
+  
+  /* HERO */
+  .hero{
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  
