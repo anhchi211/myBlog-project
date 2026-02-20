@@ -28,8 +28,8 @@
 
 .page-wrapper {
     width: 1500px;
-    margin: 30px 0;             /* top/bottom 40px, left/right 0 để căn giữa theo chiều dọc */
-    padding: auto;              /* top, right, bottom, left */
+    margin:  0;             /* top/bottom 40px, left/right 0 để căn giữa theo chiều dọc */
+    padding: 0;              /* top, right, bottom, left */
     background: var(--card);   /* màu nền trắng cho toàn bộ page-wrapper */
     border-radius: 20px;
     box-shadow: var(--shadow); 
@@ -42,7 +42,8 @@
     justify-content: space-between;
     gap: 24px;
     width: 1300px;                   /* giới hạn chiều rộng của subheader */
-    margin: 30px auto 0px;          /* top 20px, bottom 0px, left/right auto để căn giữa */
+    margin: 5px auto ;         
+    padding: 20px 0;
    }
 
   
@@ -197,14 +198,124 @@
 
  /*--- Contact page style ---*/
 
- .contact-img{
+ .contact-img{ /*  change div bọc ngoài */
   margin: 0;
   padding: 0;
+  background:var(--accent)
 }
 
-  .contact-img img{
-    display: flex;
-    align-items: flex-start; /* căn top của ảnh với phần text ở trên */
-    width: 100%;
+  .contact-img img{ /* áp dụng cho ảnh trong div.contact-img */
+    width: 1500px;
+    height: 500px;
+    object-fit: cover; /* đảm bảo ảnh không bị méo khi thay đổi kích thước */
+    border-radius: 20px; /* bo tròn góc ảnh */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    padding: 40px 40px;
   }
-    
+
+  .contact-content{
+    max-width: 600px;
+    margin: 40px auto; /* căn giữa theo chiều ngang */
+    line-height: 1.8;
+    letter-spacing: 1px;
+    text-align: center; /* căn giữa text */
+  }
+
+  .contact-button{
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 20px; /* khoảng cách giữa button và text */
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 150px;
+    justify-content: center; /* căn giữa các link */
+   margin-bottom: 20px;
+  }
+
+  /* Buttons */
+
+.btn-fill {
+  background: var(--accent);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--text);
+}
+ /*--- Blog page style ---*/ 
+.blog{
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.blog h1{
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin: 0 0 10px;
+  color: var(--hero1);
+}
+
+.blog-sub{
+  color: var(--muted);
+  margin: 0 0 40px;
+  letter-spacing: 1px;
+}
+
+/* LIST container */
+.blog-list{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* each row */
+.blog-item{
+  display: block;
+  background: #fff;
+  padding: 22px 26px;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 18px;
+  transition: transform 0.2s ease;
+}
+
+.blog-item:hover{
+  transform: translateY(-3px);
+}
+
+.blog-item h3{
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.blog-item p{
+  margin: 0 0 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.blog-meta{
+  font-size: 13px;
+  color: var(--hero1);
+  letter-spacing: 1px;
+}
