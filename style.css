@@ -27,7 +27,7 @@
   /*--- SubHeader style ---*/
 
 .page-wrapper {
-    width: 1100px;
+    width: 1150px;
     margin:  0;             /* top/bottom 40px, left/right 0 để căn giữa theo chiều dọc */
     padding: 0;              /* top, right, bottom, left */
     background: var(--card);   /* màu nền trắng cho toàn bộ page-wrapper */
