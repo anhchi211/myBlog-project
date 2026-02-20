@@ -69,6 +69,11 @@
     font-size: 20px;
     white-space: nowrap;
   }
+
+  .nav a.active { /* áp dụng cho link đang active */
+   color: var(--hero1); /* màu nổi bật cho link active */
+   font-weight: 600; /*làm nổi bật link active bằng màu và font-weight */
+   }
   
   /* BUTTON Contact */
   .contact{
