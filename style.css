@@ -15,7 +15,7 @@
   *{ box-sizing: border-box; }
   
   body{
-    margin: 0; /* bỏ margin mặc định của trình duyệt */
+    margin: 20px 20px; /* bỏ margin mặc định của trình duyệt */
     background: var(--bg);
     color: var(--text);
     font-family: Georgia, "Times New Roman", serif;
@@ -27,7 +27,7 @@
   /*--- SubHeader style ---*/
 
 .page-wrapper {
-    width: 1500px;
+    width: 1300px;
     margin:  0;             /* top/bottom 40px, left/right 0 để căn giữa theo chiều dọc */
     padding: 0;              /* top, right, bottom, left */
     background: var(--card);   /* màu nền trắng cho toàn bộ page-wrapper */
@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    width: 1300px;                   /* giới hạn chiều rộng của subheader */
+    width: 100%;                   /* giới hạn chiều rộng của subheader */
     margin: 5px auto ;         
     padding: 20px 0;
    }
@@ -52,6 +52,7 @@
     font-size: 35px;
     font-weight: 300;         
     letter-spacing: 2px;
+    margin-left: 10px;
   }
   
   /* NAV */
@@ -60,10 +61,11 @@
     gap: 30px;                 /* khoảng cách giữa Home/Journal/... */
     margin-left: auto;         /* đẩy nav về phía button */
     align-items: center;
+   
   }
   
   .nav a{
-    margin: 0;                 /* bỏ margin cũ vì đã dùng gap */
+    margin: 0;                 
     text-decoration: none;
     color: #555;
     font-size: 20px;
@@ -79,12 +81,13 @@
   .contact{
     background: var(--accent);
     border: none;
-    padding: 15px 20px;  /* top/bottom 10px, left/right 16px để tạo độ dày cho button */
+    padding: 10px 20px;  /* top/bottom 10px, left/right 16px để tạo độ dày cho button */
     border-radius: 999px;
     font-size: 20px;
     cursor: pointer; /* con trỏ chuột khi hover vào button */
     color: rgb(255,255,255);
     margin-left: 40px; /* khoảng cách giữa button và nav */
+    margin-right: 10px;
     text-decoration: none;
   }
   
@@ -94,7 +97,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 1500px;
+    width: 100%;
     height: 450px;                         /* chiều cao cố định cho hero */
     margin: 40px auto;                     /* top/bottom 40px, left/right auto để căn giữa */
     background-image: url("hero.PNG");      /* ảnh nền cho hero  */
@@ -210,7 +213,7 @@
 }
 
   .contact-img img{ /* áp dụng cho ảnh trong div.contact-img */
-    width: 1500px;
+    width: 100%;
     height: 500px;
     object-fit: cover; /* đảm bảo ảnh không bị méo khi thay đổi kích thước */
     border-radius: 20px; /* bo tròn góc ảnh */
