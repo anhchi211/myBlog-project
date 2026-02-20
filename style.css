@@ -92,7 +92,7 @@
     width: 1500px;
     height: 450px;                         /* chiều cao cố định cho hero */
     margin: 40px auto;                     /* top/bottom 40px, left/right auto để căn giữa */
-    background-image: url("hero.png");      /* ảnh nền cho hero  */
+    background-image: url("hero.PNG");      /* ảnh nền cho hero  */
     background-size: cover;                 /* ảnh nền phủ toàn bộ hero */
     background-position: center;     /* căn giữa ảnh nền */
     box-shadow: var(--shadow);
