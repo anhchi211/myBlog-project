@@ -159,11 +159,12 @@
 
 .about-content h1{
   margin: 0 0 16px;
-  font-size: 34px;
+  font-size: 30px;
 }
 
 .about-content p{
   margin: 0 0 14px;
+  letter-spacing: 1px;
 }
 
 .about-content ul{
