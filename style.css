@@ -1,21 +1,21 @@
 /*--- Whole page style ---*/
-:root{
+:root{ /* CSS variables for consistent styling across the website, easily changing the whole theme in the future */
   --bg: #f8f3ef;
   --card: #ffffff;
-  --text: #2b2b2b;      /* black for main text */
-  --muted: #6b6462;     /* darker gray for secondary text */
-  --border: #eee;       /* light gray for borders */
-  --accent: #f3a6a0;    /* coral-pink for buttons */
+  --text: #2b2b2b;                         /* black for main text */
+  --muted: #6b6462;                        /* darker gray for secondary text */
+  --border: #eee;                          /* light gray for borders */
+  --accent: #f3a6a0;                       /* coral-pink for buttons */
   --hero1: #7E4F4F; 
   --hero2: #fde8e3;
-  --radius: 20px;         /* shared border-radius for cards and subheader */
-  --shadow: 0 30px 60px rgba(0,0,0,0.08); /* soft shadow for cards and subheader */
+  --radius: 20px;                            /* shared border-radius for cards and subheader */
+  --shadow: 0 30px 60px rgba(0,0,0,0.08);  /* soft shadow for cards and subheader */
 }
 
-*{ box-sizing: border-box; }
+*{ box-sizing: border-box; }                 /* make sure padding and border are included in the total width and height of elements */
 
 body{
-  margin: 20px 20px; /* remove browser default margin */
+  margin: 30px 30px;      /* remove browser default margin */
   background: var(--bg);
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
@@ -23,16 +23,25 @@ body{
   justify-content: center;
 }
 
+/* FOOTER */
+footer{
+  text-align: center;
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
 
 /*--- SubHeader style ---*/
 
 .page-wrapper {
   width: 1150px;
-  margin:  0;             /* top/bottom 40px, left/right 0 to center vertically */
-  padding: 0;              /* top, right, bottom, left */
+  margin:  0;                /* top/bottom 40px, left/right 0 to center vertically */
+  padding: 0;                /* top, right, bottom, left */
   background: var(--card);   /* white background for the whole page-wrapper */
   border-radius: 20px;
-  box-shadow: var(--shadow); 
+  box-shadow: var(--shadow);  
 }
 
 
@@ -41,7 +50,7 @@ body{
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  width: 100%;                   /* limit the subheader width */
+  max-width: 100%;                   /* limit the subheader width */
   margin: 5px auto ;         
   padding: 20px 0;
  }
@@ -72,9 +81,9 @@ body{
   white-space: nowrap;
 }
 
-.nav a.active { /* applies to the active link */
- color: var(--hero1); /* highlight color for the active link */
- font-weight: 600; /* make the active link stand out with color and font-weight */
+.nav a.active {        /* applies to the active link */
+ color: var(--hero1);  /* highlight color for the active link */
+ font-weight: 600;     /* make the active link stand out with color and font-weight */
  }
 
 /* BUTTON Contact */
@@ -84,7 +93,7 @@ body{
   padding: 10px 20px;  /* top/bottom 10px, left/right 16px to add thickness */
   border-radius: 999px;
   font-size: 20px;
-  cursor: pointer; /* mouse pointer on hover */
+  cursor: pointer;      /* mouse pointer on hover */
   color: rgb(255,255,255);
   margin-left: 40px; /* spacing between button and nav */
   margin-right: 10px;
@@ -94,20 +103,20 @@ body{
 /* HERO */
 .hero{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;                /* organaize hero's elements vertically */
   justify-content: center;
   text-align: center;
-  width: 100%;
+  max-width: 100%;
   height: 450px;                         /* fixed hero height */
-  margin: 40px auto;                     /* 40px top/bottom, auto left/right to center */
+  margin: 40px auto;                     /* center the hero section horizontally and add vertical spacing */
   background-image: url("hero.PNG");      /* hero background image */
   background-size: cover;                 /* cover the entire hero area */
-  background-position: center;     /* center the background image */
+  background-position: center;            /* center the background image */
   box-shadow: var(--shadow);
   }
 
 .hero h1{
-  font-size: 70px;
+  font-size: 35px;
   margin: 0 0 20px; /* top 0, right 0, bottom 20px, left 0 */
   font-weight: 300;
   font-family: serif;
@@ -122,32 +131,27 @@ body{
   letter-spacing: 2px;
 }
 
-/* FOOTER */
-footer{
-  text-align: center;
-  color: var(--muted);
-  font-size: 18px;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
+
 
 /*--- About page style ---*/
 
-/* ===== ABOUT TOP ===== */
+/* --- ABOUT TOP --- */
 
 .about-me{ 
 display: flex;                /* use flexbox to place image and text side-by-side */
 align-items: flex-start;      /* align the top of the image and text */
-gap: 90px;                    /* spacing between the image and text */
+gap: 60px;                    /* spacing between the image and text */
 padding: 40px 80px 20px 80px; /* top 40px, right/left 80px, bottom 20px */
 }
 
+
+
 .about-img img{
-width: 420px;
-height: 420px;
-object-fit: cover; /* make sure the image doesn't distort when resized */
+max-width: 420px;
+width: 100%;
+height: 100%;      
+object-fit: cover;   /* make sure the image doesn't distort when resized */
 border-radius: 18px; /* round image corners */
-box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
 /* TEXT BLOCK */
@@ -174,7 +178,7 @@ padding-left: 18px;
 
 /* BUTTON */
 .project{
-display: inline-block;
+display: inline-block; /* make the button an inline-block element to allow padding and margin */
 background: var(--accent);
 color: white;
 padding: 10px 24px;
@@ -184,7 +188,7 @@ font-size: 14px;
 }
 
 
-/* ===== ABOUT BOTTOM ===== */
+/* ===== ABOUT BOTTOM CONTENT ===== */
 
 .about-me2{
 display: flex;
@@ -202,25 +206,29 @@ letter-spacing: 1px;
 
 .aboutme-content1 h1,
 .aboutme-content2 h1{
-margin-bottom: 16px;
+  margin-bottom: 16px;
 }
+
+
 
 /*--- Contact page style ---*/
 
-.contact-img{ /* change the wrapper div */
-margin: 0;
-padding: 0;
-background:var(--accent)
-}
-
 .contact-img img{ /* applies to the image inside div.contact-img */
-  width: 100%;
-  height: 500px;
-  object-fit: cover; /* make sure the image doesn't distort when resized */
-  border-radius: 20px; /* round image corners */
+  max-width: 100%;
+  height: auto;        /* maintain aspect ratio */
+  max-height: 550px;
+  object-fit: cover;   /* make sure the image doesn't distort when resized */
+  border-radius: 10px; /* round image corners */
   box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-  padding: 40px 40px;
-}
+ }
+
+ .contact-img{
+  margin: 0; 
+  padding: 20px;           /* add padding around the image */
+  display: flex;
+  justify-content: center; /* center the image horizontally */
+
+ }
 
 .contact-content{
   max-width: 600px;
@@ -245,7 +253,7 @@ background:var(--accent)
   display: flex;
   gap: 150px;
   justify-content: center; /* center the links */
- margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -265,66 +273,145 @@ border-radius: 30px;
 text-decoration: none;
 color: var(--text);
 }
-/*--- Blog page style ---*/ 
+
+/*--- Journal page style ---*/ 
+
+/* Main container of the journal page section */
 .blog{
-padding: 80px 100px;
-text-align: center;
+  padding: 80px 100px;      /* create space around the content (top/bottom 80px, left/right 100px) */
+  text-align: center;       /* center the title and subtitle */
 }
 
+/* Main title of the blog page */
 .blog h1{
-font-size: 48px;
-font-weight: 300;
-letter-spacing: 3px;
-margin: 0 0 10px;
-color: var(--hero1);
+  font-size: 48px;          /* large heading for page title */
+  font-weight: 300;         /* lighter font weight for elegant look */
+  letter-spacing: 3px;      /* spacing between letters to create airy style */
+  margin: 0 0 10px;         /* remove top margin, add 10px space below the title */
+  color: var(--hero1);      /* use theme color defined in CSS variables */
 }
 
+/* Subtitle below the main title */
 .blog-sub{
-color: var(--muted);
-margin: 0 0 40px;
-letter-spacing: 1px;
+  color: var(--muted);      /* secondary gray text color */
+  margin: 0 0 40px;         /* spacing between subtitle and the blog list */
+  letter-spacing: 1px;      /* small spacing between letters */
 }
 
-/* LIST container */
+/* LIST container that holds all blog posts */
 .blog-list{
-max-width: 900px;
-margin: 0 auto;
-text-align: left;
+  max-width: 900px;         /* limit the width so text lines stay readable */
+  margin: 0 auto;           /* center the blog list horizontally */
+  text-align: left;         /* align blog text to the left for readability */
 }
 
-/* each row */
+/* Each blog post card / row */
 .blog-item{
-display: block;
-background: #fff;
-padding: 22px 26px;
-border-radius: var(--radius);
-box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-text-decoration: none;
-color: inherit;
-margin-bottom: 18px;
-transition: transform 0.2s ease;
+  display: block;            /* make the whole card clickable as a block element */
+  background: #fff;         /* white background for the card */
+  padding: 22px 26px;         /* space inside the card (top/bottom 22px, left/right 26px) */
+  border-radius: var(--radius);  /* rounded corners using shared variable */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06); /* soft shadow to lift the card */
+  text-decoration: none;    /* remove underline from the link */
+  color: inherit;           /* inherit text color instead of default link color */
+  margin-bottom: 18px;      /* space between blog cards */
+  cursor: pointer;          /* mouse pointer on hover to indicate it's clickable */
 }
 
+/* Hover effect when mouse moves over something without clicking on it */
 .blog-item:hover{
-transform: translateY(-3px);
+  transform: translateY(-3px); /* move card slightly upward to create interaction */
+  background-color: var(--accent); /* change background to accent color on hover */
 }
 
+/* Blog post title inside each card */
 .blog-item h3{
-margin: 0 0 10px;
-font-size: 22px;
-font-weight: 400;
-letter-spacing: 1px;
+  margin: 0 0 10px;         /* remove top margin, add space below title */
+  font-size: 22px;          /* medium heading size */
+  font-weight: 400;         /* normal font weight */
+  letter-spacing: 1px;      /* slight spacing for readability */
 }
 
+/* Short description */
 .blog-item p{
-margin: 0 0 12px;
-color: var(--muted);
-line-height: 1.6;
-font-size: 15px;
+  margin: 0 0 12px;         /* space below paragraph */
+  color: var(--muted);      /* softer gray color for secondary text */
+  line-height: 1.6;         /* improve readability of text */
+  font-size: 15px;          /* smaller paragraph text */
 }
 
+/* Metadata line (reading time + category) */
 .blog-meta{
-font-size: 13px;
-color: var(--hero1);
-letter-spacing: 1px;
+  font-size: 13px;          /* small informational text */
+  color: var(--hero1);      /* accent color to highlight meta info */
+  letter-spacing: 1px;      /* subtle spacing between letters */
+}
+
+/* ---- RESPONSIVE DESIGN ---- */
+
+@media (max-width: 700px){  /*Apply these styles when the browser window width is 700 pixels or smaller.*/
+
+  body{
+    margin:16px;
+    font-size:16px; 
+  }
+
+  .page-wrapper{
+    width:100%;
+  }
+
+  .subheader{
+    flex-wrap:wrap;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .nav{
+    margin-left:0;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+  }
+
+  .hero{
+    height:auto;
+    padding:60px 20px;
+  }
+
+  .about-me{
+    flex-direction:column;
+    gap:24px;
+    padding:30px 20px;
+  }
+
+  .about-me2{
+    flex-direction:column;
+    gap:24px;
+    padding:20px;
+  }
+
+  .contact-links{
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  .blog{
+    padding:40px 20px;
+  }
+
+    /*--- Change the font-size on mobile device ---*/
+
+ .hero h1{font-size:38px;}
+ .hero p{font-size:15px;}
+ .nav a{font-size:15px;}
+ .blog h1{font-size:34px;}
+ .blog-item h3{font-size:18px;}
+  footer{font-size:12px;}
+ .contact{
+    font-size:15px;
+  }
+ .about-me2 h1{
+  font-size: 18px;
+}
+
 }
