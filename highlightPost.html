@@ -6,7 +6,7 @@
   <title>Start Here: About Me | Quiet Growth</title>
   <style>  /*i will put internal CSS for all the blogs*/
     :root{ /* CSS variables for consistent styling across the website, easily changing the whole theme in the future */
-       --bg: #f8f3ef;
+       --bg: #f8f3ef;                          /* light cream background for the whole page, behind the page wrapper */
        --card: #ffffff;
        --text: #2b2b2b;                         /* black for main text */
        --muted: #6b6462;                        /* darker gray for secondary text */
@@ -14,14 +14,14 @@
        --accent: #f3a6a0;                       /* coral-pink for buttons */
        --hero1: #7E4F4F; 
        --hero2: #fde8e3;
-       --radius: 20px;                            /* shared border-radius for cards and subheader */
+       --radius: 20px;                          /* border-radius for cards and subheader */
        --shadow: 0 30px 60px rgba(0,0,0,0.08);  /* soft shadow for cards and subheader */
      }
      
      *{ box-sizing: border-box;}                 /* make sure padding and border are included in the total width and height of elements */
      
      body{
-       margin: 30px 30px;      /* add outer spacing around page */
+       margin: 20px 20px;      /* add outer spacing around page */
        background: var(--bg);
        color: var(--text);
        font-family: Georgia, "Times New Roman", serif;
@@ -46,8 +46,8 @@
      }
    
      .page-wrapper { /* create wrapper for the whole page, including header, main content, and footer. */
-       width: 1150px;
-       margin:  0;                /* remove default margin to let the subheader and main content align with the edges of the page-wrapper */
+       max-width: 1150px;
+       width: 100%;
        padding: 0;                /* remove default padding to let the subheader and main content align with the edges of the page-wrapper */
        background: var(--card);   /* white background for the whole page-wrapper */
        border-radius: 20px;
@@ -227,9 +227,16 @@
    
      /*--- pagewrapper, subheader, nav same as index.html ---*/
      .page-wrapper{
-         width:100%;
-     }
-   
+      width:100%;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+     body {
+      margin: 8px;
+    }   
+  
      .subheader{
        flex-wrap:wrap;
        justify-content:center;

@@ -15,7 +15,7 @@
 *{ box-sizing: border-box; }                 /* make sure padding and border are included in the total width and height of elements */
 
 body{
-  margin: 30px 30px;      /* add outer spacing around page */
+  margin: 20px 20px;      /* add outer spacing around page */
   background: var(--bg);
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
@@ -36,9 +36,9 @@ footer{
 /*--- SubHeader style ---*/
 
 .page-wrapper {
-  width: 1150px;
-  margin:  0;                /* top/bottom 40px, left/right 0 to center vertically */
-  padding: 0;                /* top, right, bottom, left */
+  max-width: 1150px;
+  width: 100%;              
+  padding: 0px;                /* top, right, bottom, left */
   background: var(--card);   /* white background for the whole page-wrapper */
   border-radius: 20px;
   box-shadow: var(--shadow);  
@@ -134,11 +134,12 @@ footer{
   max-width: 500px;  /* limit the width of the featured post section for better readability */
   margin: 40px auto; /* center the featured post section horizontally and add vertical spacing */
   text-align: center;
+  padding: 20px;
 }
 
 .featured-post img{
   width: 80%;
-  max-height: 420px;
+  max-height: 300px;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: var(--shadow);
@@ -386,7 +387,14 @@ color: var(--text);
   
   .page-wrapper{
     width:100%;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
   }
+   
+   body {
+    margin: 8px;
+   }
 
   .subheader{
     flex-wrap:wrap;
@@ -403,7 +411,7 @@ color: var(--text);
 
   .hero{
     height:auto;
-    padding:60px 20px;
+    padding: 60px 20px;
   }
 
   .about-me{
@@ -438,6 +446,4 @@ color: var(--text);
  .contact{
     font-size:15px;
   }
-
-
 }
