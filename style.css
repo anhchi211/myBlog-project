@@ -19,8 +19,6 @@ body{
   background: var(--bg);
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
-  display: flex;
-  justify-content: center;
 }
 
 /* FOOTER */
@@ -38,7 +36,7 @@ footer{
 .page-wrapper {
   max-width: 1250px;
   width: 100%;  
-  margin:40px;            
+  margin:40px auto;            
   padding: 40px 60px;               
   background: var(--card);
   box-shadow: var(--shadow);
@@ -50,9 +48,6 @@ footer{
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  max-width: 100%;                   /* limit the subheader width */
-  margin: 5px auto ;         
-  padding: 20px 0;
  }
 
 
@@ -68,16 +63,16 @@ footer{
 .nav{
   display: flex;
   gap: 30px;                 /* spacing between Home/Journal/... */
-  margin-left: auto;         /* push nav towards the button */
-  align-items: center;
- 
+  align-items: center;       /* vertically center the nav links with the logo and contact button */
+  margin-left: auto;         /* push the nav to the right */
 }
+
 
 .nav a{               
   text-decoration: none;
   color: #555;
   font-size: 20px;
-  white-space: nowrap;
+  white-space: nowrap; 
 }
 
 .nav a.active {        /* applies to the active link */
@@ -91,10 +86,7 @@ footer{
   padding: 10px 20px;  /* top/bottom 10px, left/right 16px to add thickness */
   border-radius: 999px;
   font-size: 20px;
-  cursor: pointer;      /* mouse pointer on hover */
   color: rgb(255,255,255);
-  margin-left: 40px; /* spacing between button and nav */
-  margin-right: 10px;
   text-decoration: none;
 }
 
@@ -155,7 +147,7 @@ footer{
 
 .featured-text h3{
   margin-top: 8px;
-  color:var(--hero1)
+  color:var(--hero1);
 }
 
 .read-more{
@@ -170,78 +162,69 @@ footer{
 
 /* --- ABOUT TOP --- */
 
-.about-me{ 
-display: flex;                /* use flexbox to place image and text side-by-side */
-align-items: flex-start;      /* align the top of the image and text */
-gap: 60px;                    /* spacing between the image and text */
-padding: 40px 80px 20px 80px; /* top 40px, right/left 80px, bottom 20px */
-}
+  .about-me{ 
+  display: flex;                /* use flexbox to place image and text side-by-side */
+  align-items: flex-start;      /* align the top of the image and text */
+  gap: 60px;                    /* spacing between the image and text */
+  padding: 40px 80px 20px 80px; /* top 40px, right/left 80px, bottom 20px */
+  }
 
 
 
-.about-img img{
-max-width: 420px;
-width: 100%;
-height: 100%;      
-object-fit: cover;   /* make sure the image doesn't distort when resized */
-border-radius: 18px; /* round image corners */
-}
+  .about-img img{
+  max-width: 420px;
+  width: 100%;
+  height: 100%;      
+  object-fit: cover;   /* make sure the image doesn't distort when resized */
+  border-radius: 18px; /* round image corners */
+  }
 
-/* TEXT BLOCK */
-.about-content{
-max-width: 520px;
-line-height: 1.8;
-}
+  /* TEXT BLOCK */
+  .about-content{
+  max-width: 520px;
+  line-height: 1.8;
+  }
 
-.about-content h1{
-margin: 0 0 16px;
-color: var(--hero1);
-font-size: 35px;
-}
-
-.about-content p{
-margin: 0 0 14px;
-}
-
-.about-content ul{
-margin: 16px 0 20px;
-padding-left: 18px;
-}
-
-/* BUTTON */
-.project{
-display: inline-block; /* make the button an inline-block element to allow padding and margin */
-background: var(--accent);
-color: white;
-padding: 10px 24px;
-border-radius: 999px;
-text-decoration: none;
-font-size: 14px;
-}
-
-
-/* ===== ABOUT BOTTOM CONTENT ===== */
-
-.about-me2{
-display: flex;
-align-items: flex-start;
-gap: 160px;
-padding: 20px 80px 40px 80px;
-}
-
-.aboutme-content1,
-.aboutme-content2{
-max-width: 420px;
-line-height: 1.8;
-}
-
-.aboutme-content1 h1,
-.aboutme-content2 h1{
-  margin-bottom: 16px;
+  .about-content h1, .aboutme-content1 h1,
+  .aboutme-content2 h1{
+  margin: 0 0 16px;
   color: var(--hero1);
   font-size: 35px;
-}
+  }
 
+  .about-content p{
+  margin: 0 0 14px;
+  }
+
+  .about-content ul{
+  margin: 16px 0 20px;
+  padding-left: 18px;
+  }
+
+  /* BUTTON */
+  .project{
+  display: inline-block; /* make the button an inline-block element to allow padding and margin */
+  background: var(--accent);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  }
+
+
+  .about-me2{
+  display: flex;
+  align-items: flex-start;
+  gap: 160px;
+  padding: 20px 80px 40px 80px;
+  }
+
+  .aboutme-content1,
+  .aboutme-content2{
+  max-width: 420px;
+  line-height: 1.8;
+  }
 
 
 /*--- Contact page style ---*/
@@ -291,21 +274,21 @@ line-height: 1.8;
 
 /* Buttons */
 
-.btn-fill {
-background: var(--accent);
-color: white;
-padding: 10px 18px;
-border-radius: 30px;
-text-decoration: none;
-}
+  .btn-fill {
+  background: var(--accent);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  }
 
-.btn-outline {
-border: 1px solid var(--border);
-padding: 10px 18px;
-border-radius: 30px;
-text-decoration: none;
-color: var(--text);
-}
+  .btn-outline {
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--text);
+  }
 
 /*--- Journal page style ---*/ 
 
@@ -382,68 +365,152 @@ color: var(--text);
 
 /* ---- RESPONSIVE DESIGN ---- */
 
-@media (max-width: 700px){  /*Apply these styles when the browser window width is 700 pixels or smaller.*/
 
-  
+@media (max-width: 700px){
+
+  /* --- MAIN PARTS TEMPLATE FOR WHOLE WEBSITE --- */
+
   .page-wrapper{
-    width:100%;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
     background: transparent;
     box-shadow: none;
-    border-radius: 0;
   }
-   
-   body {
-    margin: 8px;
-   }
+
+  .logo{
+    font-size: 28px;
+  }
 
   .subheader{
-    flex-wrap:wrap;
-    justify-content:center;
-    text-align:center;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 16px;
   }
 
   .nav{
-    margin-left:0;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:16px;
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
+
+  .nav a{
+    font-size: 14px;
+  }
+
+  .contact{
+    font-size: 15px;
+    margin: 0;
+    padding: 10px 18px;
+  }
+
+  footer{
+    font-size: 12px;
+    padding: 0 16px 20px;
+  }
+
+  /* --- HOME PAGE --- */
 
   .hero{
-    height:auto;
-    padding: 60px 20px;
+    margin: 0;
+    padding: 48px 20px;
+    height: auto;
   }
 
+  .hero h1{
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .hero p{
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+  }
+
+  .featured-post{
+    max-width: 100%;
+    margin: 32px auto;
+    padding: 20px 16px;
+  }
+
+  .featured-post img{
+    width: 100%;
+    max-height: none;
+    display: block;
+    }
+  
+
+  /* --- ABOUT PAGE --- */
+
   .about-me{
-    flex-direction:column;
-    gap:24px;
-    padding:30px 20px;
+    flex-direction: column;
+    gap: 24px;
+    padding: 30px 20px;
   }
 
   .about-me2{
-    flex-direction:column;
-    gap:24px; 
-    padding:20px;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .about-content,
+  .aboutme-content1,
+  .aboutme-content2{
+    max-width: 100%;
+  }
+
+  .about-content h1,
+  .aboutme-content1 h1,
+  .aboutme-content2 h1{
+    font-size: 26px;
+  }
+
+  /* --- JOURNAL PAGE --- */
+
+  .blog{
+    padding: 40px 20px;
+  }
+
+  .blog h1{
+    font-size: 34px;
+  }
+
+  .blog-list{
+    max-width: 100%;
+  }
+
+  .blog-item{
+    padding: 18px;
+  }
+
+  .blog-item h3{
+    font-size: 18px;
+  }
+
+  /* --- CONTACT PAGE --- */
+
+  .contact-img{
+    padding: 16px;
+  }
+
+  .contact-content{
+    max-width: 100%;
+    margin: 24px auto;
+    padding: 0 16px;
   }
 
   .contact-links{
-    gap:20px;
-    flex-wrap:wrap;
-  }
-
-  .blog{
-    padding:40px 20px;
-  }
-
-    /*--- Change the font-size on mobile device ---*/
-
- .hero h1{font-size:38px;}
- .hero p{font-size:15px;}
- .nav a{font-size:15px;}
- .blog h1{font-size:34px;}
- .blog-item h3{font-size:18px;}
-  footer{font-size:12px;}
- .contact{
-    font-size:15px;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 }
+
+ 
