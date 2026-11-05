@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What I Learn Daily | Quiet Growth</title>
+  
+  <style>  /*i will put internal CSS for all the blog pages*/
+    :root{ /* CSS variables for consistent styling across the website, easily changing the whole theme in the future */
+       --bg: #f8f3ef;                          /* light cream background for the whole page, behind the page wrapper */
+       --card: #ffffff;
+       --text: #2b2b2b;                         /* black for main text */
+       --muted: #6b6462;                        /* darker gray for secondary text */
+       --border: #eee;                          /* light gray for borders */
+       --accent: #f3a6a0;                       /* coral-pink for buttons */
+       --hero1: #7E4F4F; 
+       --hero2: #fde8e3;
+       --radius: 20px;                          /* border-radius for cards and subheader */
+       --shadow: 0 30px 60px rgba(0,0,0,0.08);  /* soft shadow for cards and subheader */
+     }
+     
+     *{ box-sizing: border-box;}                 /* make sure padding and border are included in the total width and height of elements */
+     
+     body{
+       margin: 0;     
+       background: var(--bg);
+       color: var(--text);
+       font-family: Georgia, "Times New Roman", serif;
+      }
+   
+      /*--- MAIN CONTENT ---*/
+      .blog-post{
+       max-width: 900px;
+       margin: 0 auto;         /* center the post content horizontally */
+       padding: 20px;          /* add some padding around the content */ 
+     }
+     
+     /* FOOTER */
+      footer{
+        text-align: center;
+        color: var(--muted);
+        font-size: 18px;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+    
+      
+      .page-wrapper {
+        max-width: 1250px;
+        width: 100%;  
+        margin:40px auto;            
+        padding: 40px 60px;               
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+
+      .subheader{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      
+      .logo{
+        color: var(--hero1);
+        font-size: 35px;
+        font-weight: 300;         
+        letter-spacing: 2px;
+        margin-left: 10px;
+      }
+     
+     /* NAV */
+      .nav{
+        display: flex;
+        gap: 30px;                 
+        margin-left: auto;        
+        align-items: center;
+        
+      }
+      
+      .nav a{               
+        text-decoration: none;
+        color: #555;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+     
+     .nav a.active {        /* applies to the active link */
+      color: var(--hero1);  /* highlight color for the active link */
+      font-weight: 600;     /* make the active link stand out with color and font-weight */
+      }
+     
+     /* BUTTON CONTACT */
+      .contact{
+        background: var(--accent);
+        padding: 10px 20px;  /* top/bottom 10px, left/right 16px to add thickness */
+        border-radius: 999px;
+        font-size: 20px;
+        color: rgb(255,255,255);
+        text-decoration: none;
+      }
+
+      /*--- STYLE FOR THE CONTENT OF POST PAGE ---*/
+   
+      /*--- post-header ---*/
+     .post-header h1{
+       text-align: center;
+       color: var(--hero1);
+       font-size: 35px;
+       margin-bottom: 8px; /* to set space between title and subtitle */
+     }
+   
+     .blog-sub{
+       text-align: center;
+       color: var(--muted);
+       font-size: 18px;
+       font-style: italic;
+       letter-spacing: 0.5px;
+     }
+    
+      /*--- post-hero container ---*/
+     .post-hero{
+       display: flex;
+       justify-content: center;  /* center the content in this container horizontally */
+       position: relative; /* to position the caption absolutely within this container */
+     }
+   
+     .post-hero img{
+       width: 100%; /* make the image take the full width of its container, but not exceed its original size */
+       height: auto; /* maintain the aspect ratio of the image */
+       max-height: 450px; /* limit the height of the image to prevent it from becoming too tall on larger screens */
+       object-fit: cover;
+       border-radius: 20px;
+       box-shadow: var(--shadow);
+     }
+   
+     .post-caption{
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       background: rgba(0,0,0,0.35);
+       color: white;
+       text-align: center;
+       padding: 12px;
+       font-style: italic;
+       letter-spacing: 0.5px;
+       }
+     /*--- blog-post-body ---*/
+     .blog-post-body {
+       margin: 20px;
+       line-height: 1.8; /* increase line height for better readability */
+     }
+   
+     h2{
+       color: var(--hero1);
+       font-size: 30px;
+     }
+   
+     /*--- table ---*/
+     .table-wrap{
+       margin: 18px 0 28px;
+       overflow-x: auto; /* allows horizontal scrolling on small screens, preventing layout breakage */
+     }
+     
+     .focus-table{
+       width: 100%;
+       border-collapse: collapse;
+       background: #fff;
+       border: 1px solid #d9d9d9;
+       border-radius: 12px;
+       overflow: hidden;
+       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+     }
+     
+     .focus-table caption{
+       caption-side: top;
+       text-align: center;
+       color: var(--muted);
+       font-size: 16px;
+       margin-bottom: 14px;
+       letter-spacing: 0.3px;
+     }
+     
+     .focus-table thead th{
+       background: #f3f3f3;
+       color: var(--text);
+       font-size: 18px;
+       font-weight: 700;
+       text-align: left;
+       padding: 16px 28px;
+       border: 1px solid #d9d9d9;
+     }
+     
+     .focus-table tbody td{
+       padding: 16px 28px;
+       font-size: 17px;
+       color: var(--text);
+       border: 1px solid #d9d9d9;
+       vertical-align: middle;
+     }
+     
+     .focus-table tbody tr:hover{
+       background: #faf7f5;
+     }
+     
+     .focus-table tbody td:first-child{
+       font-weight: 700;
+       color: var(--hero1);
+     }
+   
+     /*--- post-actions ---*/
+     .post-actions{
+       display: flex;
+       gap: 16px;
+       margin-top: 24px;
+     }
+   
+    
+   
+     /*--- Responsive design for post page --- */
+     @media (max-width: 700px){
+
+       /* --- MAIN PARTS TEMPLATE FOR WHOLE WEBSITE --- */
+
+        .page-wrapper{
+          width: 100%;
+          max-width: none;
+          margin: 0;
+          padding: 0;
+          background: transparent;
+          box-shadow: none;
+        }
+
+        .logo{
+          font-size: 28px;
+          margin-left: 0;
+        }
+
+        .subheader{
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+          gap: 12px;
+          padding: 20px 16px;
+        }
+
+        .nav{
+          margin-left: 0;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 16px;
+        }
+
+        .nav a{
+          font-size: 14px;
+        }
+
+        .contact{
+          font-size: 15px;
+          margin: 0;
+          padding: 10px 18px;
+        }
+
+        footer{
+          font-size: 12px;
+          padding: 0 16px 20px;
+        }
+
+       /*--- CONTENT OF FEATURE POST PAGE ---*/
+
+    
+      .blog-post{
+        width: 100%;
+        padding: 20px 16px 28px;
+      }
+    
+      .post-header h1{
+        font-size: 28px;
+        line-height: 1.3;
+        margin-bottom: 10px;
+      }
+    
+      .blog-sub{
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 0 8px;
+      }
+    
+      .post-hero{
+        padding: 0;
+      }
+    
+      .post-hero img{
+        width: 100%;
+        max-height: none;
+        border-radius: 0;
+      }
+    
+      .post-caption{
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        padding: 10px;
+      }
+    
+      .blog-post-body{
+        margin: 20px 0 0;
+      }
+    
+      h2{
+        font-size: 24px;
+      }
+    
+    
+      .focus-table{
+        min-width: 460px;
+      }
+    
+      .focus-table th,
+      .focus-table td{
+        padding: 10px;
+        font-size: 14px;
+      }
+    
+      .post-actions{
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+    
+   </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+
+    <!-- SubHeader -->
+    <header class="subheader">
+      <div class="logo">Quiet Growth</div>
+    
+      <nav class="nav">      <!--Navigation menu of a website-->
+        <a href="index.html">HOME</a>
+        <a href="journal.html" class="active">JOURNAL</a>
+        <a href="about.html">ABOUT</a>
+      </nav>
+    
+      <a class="contact" href="contact.html">CONTACT</a>
+    </header> 
+
+    <hr>
+
+    <main>
+      <article class="blog-post" aria-label="Post">
+        <header class="post-header">
+          <h1>What I Learn Daily</h1>
+          <p class="blog-sub">Small systems, tiny experiments, and notes I keep when I don’t have a perfect plan.</p>
+          <p class="blog-sub">2 min read · Experiments</p>
+        </header>
+
+        <!-- Hero image for the post -->
+        <figure class="post-hero">
+          <img
+            src="hero.PNG"
+            alt="Soft pink watercolor background">
+          <figcaption class="post-caption">
+            One small thing a day is still something.
+          </figcaption>
+        </figure>
+
+        <section class="blog-post-body">
+          <h2>I don’t have a perfect plan</h2>
+          <p>
+            For a long time, I thought I needed a clear roadmap before I could start learning anything new. The right course, the right schedule, the right notebook. <br>
+
+            But most days don’t look like a plan. They look like a lecture, a few hours of work, some Finnish practice on the bus, and maybe twenty quiet minutes in the evening. <br>
+
+            So instead of waiting for the perfect plan, I started asking a smaller question at the end of each day: <em>what did I learn today?</em>
+          </p>
+
+          <h2>My small system</h2>
+          <p>
+            The system is simple on purpose. If it takes more than five minutes, I won’t keep doing it.
+          </p>
+          <ul>
+            <li><strong>One line a day</strong> — I write down one thing I learned, no matter how small.</li>
+            <li><strong>One tiny experiment a week</strong> — try a new tool, a new study method, or a new way to organize my notes.</li>
+            <li><strong>One review on Sunday</strong> — read the week’s notes and circle what was actually useful.</li>
+          </ul>
+
+          <h2>A week of notes</h2>
+
+          <!-- Wrap table for mobile -->
+          <div class="table-wrap">
+            <table class="focus-table">
+              <caption>What a normal week looks like</caption>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">What I learned</th>
+                  <th scope="col">Type</th>
+                </tr>
+              <tbody>
+                <tr>
+                  <td>Mon</td>
+                  <td>CSS flexbox <code>gap</code> is cleaner than margins between items</td>
+                  <td>Web</td>
+                </tr>
+                <tr>
+                  <td>Tue</td>
+                  <td>A good user story starts with the user, not the feature</td>
+                  <td>Business analysis</td>
+                </tr>
+                <tr>
+                  <td>Wed</td>
+                  <td>Three new Finnish words I heard in the grocery store</td>
+                  <td>Language</td>
+                </tr>
+                <tr>
+                  <td>Thu</td>
+                  <td>Studying for 25 minutes works better for me than 60</td>
+                  <td>Experiment</td>
+                </tr>
+                <tr>
+                  <td>Fri</td>
+                  <td>Rest is part of learning, not a break from it</td>
+                  <td>Reflection</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>What I noticed</h2>
+          <p>
+            None of these notes are impressive on their own. But after a few weeks, they add up to something I can see. <br>
+
+            On days when I feel like I’m not making progress, I open the list. It’s quiet proof that I am still growing — just slowly, and in small pieces. <br> <br>
+
+            <em>— Chi</em>
+          </p>
+
+          <div class="post-actions">
+            <a href="journal.html">← Back to Journal</a>
+            <a href="highlightPost.html">The Story Behind Quiet Growth</a>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p> @ 2026 Chi Nguyen. <em> All rights reserved.</em> </p>
+    </footer>
+  </div>
+</body>
+</html>
+
