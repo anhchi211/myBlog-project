@@ -1,516 +1,438 @@
-/*--- Whole page style ---*/
-:root{ /* CSS variables for consistent styling across the website, easily changing the whole theme in the future */
-  --bg: #f8f3ef;
-  --card: #ffffff;
-  --text: #2b2b2b;                         /* black for main text */
-  --muted: #6b6462;                        /* darker gray for secondary text */
-  --border: #eee;                          /* light gray for borders */
-  --accent: #f3a6a0;                       /* coral-pink for buttons */
-  --hero1: #7E4F4F; 
-  --hero2: #fde8e3;
-  --radius: 20px;                            /* shared border-radius for cards and subheader */
-  --shadow: 0 30px 60px rgba(0,0,0,0.08);  /* soft shadow for cards and subheader */
+/* =========================================================
+   QUIET GROWTH — shared stylesheet for every page
+   Clean, airy layout in Quiet Growth's own warm palette:
+   Lora (serif) for headings, Lato for reading,
+   rose-brown and coral accents on cream.
+   ========================================================= */
+
+:root{ /* CSS variables: change these to re-theme the whole site */
+  --bg: #f8f3ef;          /* light cream behind the page */
+  --card: #ffffff;        /* white page */
+  --text: #2b2b2b;        /* main text */
+  --muted: #7a716f;       /* secondary text */
+  --line: #eee4dc;        /* thin divider lines */
+  --soft: #fbf6f2;        /* very light cream panels */
+  --hero1: #7E4F4F;       /* rose-brown: headings, logo, links */
+  --hero2: #fde8e3;       /* blush: highlights */
+  --accent: #f3a6a0;      /* coral: buttons, small accents */
+  --radius: 18px;
+  --shadow: 0 24px 60px rgba(126,79,79,0.08);
+  --body-font: "Lato", "Helvetica Neue", Arial, sans-serif;
+  --head-font: "Lora", Georgia, "Times New Roman", serif;
 }
 
-*{ box-sizing: border-box; }                 /* make sure padding and border are included in the total width and height of elements */
+*{ box-sizing: border-box; }   /* padding and border are included in the width */
 
 body{
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.75;
 }
 
-/* FOOTER */
-footer{
-  text-align: center;
-  color: var(--muted);
-  font-size: 18px;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
+img{ max-width: 100%; }
+
+a{
+  color: var(--hero1);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
 }
 
+a:hover{ text-decoration-thickness: 2px; }
 
-/*--- SubHeader style ---*/
+h1, h2, h3{
+  font-family: var(--head-font);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--hero1);
+}
 
-.page-wrapper {
-  max-width: 1250px;
-  width: 100%;  
-  margin:40px auto;            
-  padding: 40px 60px;               
+/* ---------- PAGE WRAPPER (the white page) ---------- */
+.page-wrapper{
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 36px 64px 0;
   background: var(--card);
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
+  overflow: hidden;              /* keeps the footer inside the rounded corners */
 }
 
-
-.subheader{
+/* ---------- HEADER: wordmark left, links right ---------- */
+.site-header{
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
- }
-
+  padding-bottom: 22px;
+  margin-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+}
 
 .logo{
+  font-family: var(--head-font);
+  font-size: 30px;
+  font-weight: 500;
   color: var(--hero1);
-  font-size: 35px;
-  font-weight: 300;         
-  letter-spacing: 2px;
-  margin-left: 10px;
+  text-decoration: none;
+  letter-spacing: 0.5px;
 }
 
-/* NAV */
+.logo em{
+  font-style: italic;
+  color: var(--accent);
+}
+
 .nav{
   display: flex;
-  gap: 30px;                 /* spacing between Home/Journal/... */
-  align-items: center;       /* vertically center the nav links with the logo and contact button */
-  margin-left: auto;         /* push the nav to the right */
+  gap: 32px;
 }
 
-
-.nav a{               
+.nav a{
+  position: relative;
+  font-size: 15px;
+  color: var(--text);
   text-decoration: none;
-  color: #555;
-  font-size: 20px;
-  white-space: nowrap; 
+  padding: 4px 0;
 }
 
-.nav a.active {        /* applies to the active link */
- color: var(--hero1);  /* highlight color for the active link */
- font-weight: 600;     /* make the active link stand out with color and font-weight */
- }
-
-/* BUTTON Contact */
-.contact{
+.nav a::after{                   /* coral line that grows under the link */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
   background: var(--accent);
-  padding: 10px 20px;  /* top/bottom 10px, left/right 16px to add thickness */
-  border-radius: 999px;
-  font-size: 20px;
-  color: rgb(255,255,255);
-  text-decoration: none;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
 }
 
-/* HERO */
-.hero{
-  display: flex;
-  flex-direction: column;                /* organaize hero's elements vertically */
-  justify-content: center;
+.nav a:hover::after,
+.nav a.active::after{ transform: scaleX(1); }
+
+.nav a.active{ color: var(--hero1); font-weight: 700; }
+
+/* ---------- FOOTER ---------- */
+footer{
+  margin: 80px -64px 0;          /* stretch to the edges of the white page */
+  padding: 26px 20px;
+  background: var(--soft);
+  border-top: 1px solid var(--line);
   text-align: center;
-  max-width: 100%;
-  height: 450px;                         /* fixed hero height */
-  margin: 40px auto;                     /* center the hero section horizontally and add vertical spacing */
-  background-image: url("hero.PNG");      /* hero background image */
-  background-size: cover;                 /* cover the entire hero area */
-  background-position: center;            /* center the background image */
-  box-shadow: var(--shadow);
-  }
+  font-size: 14px;
+  color: var(--muted);
+}
+
+footer p{ margin: 0; }
+
+/* ---------- SHARED PIECES ---------- */
+.section-title{                  /* small label above a section, e.g. "Start here" */
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.divider{                        /* three small dots */
+  width: 6px;
+  height: 6px;
+  margin: 28px auto;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: -16px 0 0 var(--hero2), 16px 0 0 var(--hero2);
+}
+
+.btn{                            /* rounded pill button */
+  display: inline-block;
+  padding: 11px 26px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--hero1);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn:hover{
+  background: var(--hero2);
+  transform: translateY(-2px);
+}
+
+.btn.btn-dark{
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.btn-dark:hover{ background: var(--hero1); border-color: var(--hero1); }
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+.hero{
+  max-width: 680px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
 
 .hero h1{
-  font-size: 35px;
-  margin: 0 0 20px; /* top 0, right 0, bottom 20px, left 0 */
-  font-weight: 300;
-  font-family: serif;
-  color: var(--hero1);
-  letter-spacing: 5px;
+  font-size: 38px;
+  margin: 0;
 }
 
 .hero p{
-  font-size: 20px;
   color: var(--muted);
-  margin: 0; /* remove browser default margin */
-  letter-spacing: 2px;
+  font-size: 18px;
+  margin: 0;
 }
 
-/*--- Feature post page style ---*/
 .featured-post{
-  max-width: 500px;  /* limit the width of the featured post section for better readability */
-  margin: 40px auto; /* center the featured post section horizontally and add vertical spacing */
-  text-align: center;
-  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.featured-post img{
-  width: 80%;
-  max-height: 300px;
+.featured-card{
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 48px;
+  align-items: center;
+  padding: 28px;
+  background: var(--soft);
+  border-radius: var(--radius);
+}
+
+.featured-card img{
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+  display: block;
+  border-radius: 12px;
 }
 
-.featured-text{
-  margin-top: 24px;
-}
-
-.featured-post h2{
-  color: var(--hero1);
+.featured-text .kicker{
+  font-size: 13px;
+  color: var(--muted);
 }
 
 .featured-text h3{
-  margin-top: 8px;
-  color:var(--hero1);
+  font-size: 26px;
+  margin: 6px 0 14px;
 }
 
-.read-more{
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--hero1);
+.featured-text p{
+  margin: 0 0 26px;
+}
+
+/* =========================================================
+   JOURNAL PAGE
+   ========================================================= */
+.blog{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog h1{
+  text-align: center;
+  font-size: 38px;
+  margin: 0 0 4px;
+}
+
+.blog-sub{
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 44px;
+}
+
+.blog-list{
+  display: grid;
+  gap: 16px;
+}
+
+.blog-item{
+  display: block;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--text);
   text-decoration: none;
-  font-weight: 600;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
-/*--- About page style ---*/
+.blog-item:hover{
+  border-color: var(--accent);
+  background: var(--soft);
+  transform: translateY(-2px);
+}
 
-/* --- ABOUT TOP --- */
+.blog-item h3{
+  font-size: 22px;
+  margin: 0 0 6px;
+}
 
-  .about-me{ 
-  display: flex;                /* use flexbox to place image and text side-by-side */
-  align-items: flex-start;      /* align the top of the image and text */
-  gap: 60px;                    /* spacing between the image and text */
-  padding: 40px 80px 20px 80px; /* top 40px, right/left 80px, bottom 20px */
-  }
+.blog-item p{
+  margin: 0 0 10px;
+  color: #4a4442;
+}
 
+.blog-meta{
+  font-size: 13px;
+  color: var(--muted);
+}
 
+.blog-item.soon{                 /* posts that are not written yet */
+  pointer-events: none;
+  border-style: dashed;
+}
 
-  .about-img img{
-  max-width: 420px;
+.blog-item.soon h3{ color: var(--muted); }
+
+/* =========================================================
+   ABOUT PAGE
+   ========================================================= */
+.about{
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;   /* photo column + text column */
+  column-gap: 56px;
+  align-items: start;
+}
+
+.about > *{ grid-column: 2; }        /* everything goes in the text column... */
+
+.about-photo{                         /* ...except the photo, which stays on the left */
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  position: sticky;
+  top: 24px;
+  margin: 0;
+}
+
+.about-photo img{
+  display: block;
   width: 100%;
-  height: 100%;      
-  object-fit: cover;   /* make sure the image doesn't distort when resized */
-  border-radius: 18px; /* round image corners */
-  }
+  border-radius: var(--radius);
+  box-shadow: 14px 14px 0 var(--hero2);   /* blush block offset behind the photo */
+}
 
-  /* TEXT BLOCK */
-  .about-content{
-  max-width: 520px;
-  line-height: 1.8;
-  }
+.about h2{
+  font-size: 28px;
+  margin: 44px 0 14px;
+}
 
-  .about-content h1, .aboutme-content1 h1,
-  .aboutme-content2 h1{
-  margin: 0 0 16px;
-  color: var(--hero1);
-  font-size: 35px;
-  }
+.about h2:first-child{ margin-top: 0; }
 
-  .about-content p{
-  margin: 0 0 14px;
-  }
+.about ul{
+  padding-left: 20px;
+  margin: 0 0 18px;
+}
 
-  .about-content ul{
-  margin: 16px 0 20px;
-  padding-left: 18px;
-  }
+.about li{ margin-bottom: 6px; }
+.about li::marker{ color: var(--accent); }
 
-  /* BUTTON */
-  .project{
-  display: inline-block; /* make the button an inline-block element to allow padding and margin */
-  background: var(--accent);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 14px;
-  }
-
-
-  .about-me2{
+.about-cta{
+  margin-top: 26px;
   display: flex;
-  align-items: flex-start;
-  gap: 160px;
-  padding: 20px 80px 40px 80px;
-  }
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
 
-  .aboutme-content1,
-  .aboutme-content2{
-  max-width: 420px;
-  line-height: 1.8;
-  }
+.about-cta em{ color: var(--muted); }
 
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+.contact-img{
+  margin: 0 0 44px;
+}
 
-/*--- Contact page style ---*/
-
-.contact-img img{ /* applies to the image inside div.contact-img */
-  max-width: 100%;
-  height: auto;        /* maintain aspect ratio */
-  max-height: 550px;
-  object-fit: cover;   /* make sure the image doesn't distort when resized */
-  border-radius: 10px; /* round image corners */
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
- }
-
- .contact-img{
-  margin: 0; 
-  padding: 20px;           /* add padding around the image */
-  display: flex;
-  justify-content: center; /* center the image horizontally */
-
- }
+.contact-img img{
+  display: block;
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
 
 .contact-content{
   max-width: 600px;
-  margin: 40px auto; /* center horizontally */
-  line-height: 1.8;
-  letter-spacing: 1px;
-  text-align: center; /* center text */
+  margin: 0 auto;
+  text-align: center;
 }
 
-.contact-button{
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 14px;
-  margin-top: 20px; /* spacing between the button and text */
+.contact-content h1{
+  font-size: 34px;
+  margin: 0 0 18px;
 }
 
-.contact-links {
+.contact-links{
   display: flex;
-  gap: 150px;
-  justify-content: center; /* center the links */
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 34px;
 }
 
-/* Buttons */
-
-  .btn-fill {
-  background: var(--accent);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  }
-
-  .btn-outline {
-  border: 1px solid var(--border);
-  padding: 10px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: var(--text);
-  }
-
-/*--- Journal page style ---*/ 
-
-/* Main container of the journal page section */
-.blog{
-  padding: 80px 100px;      /* create space around the content (top/bottom 80px, left/right 100px) */
-  text-align: center;       /* center the title and subtitle */
-}
-
-/* Main title of the blog page */
-.blog h1{
-  font-size: 48px;          /* large heading for page title */
-  font-weight: 300;         /* lighter font weight for elegant look */
-  letter-spacing: 3px;      /* spacing between letters to create airy style */
-  margin: 0 0 10px;         /* remove top margin, add 10px space below the title */
-  color: var(--hero1);      /* use theme color defined in CSS variables */
-}
-
-/* Subtitle below the main title */
-.blog-sub{
-  color: var(--muted);      /* secondary gray text color */
-  margin: 0 0 40px;         /* spacing between subtitle and the blog list */
-  letter-spacing: 1px;      /* small spacing between letters */
-}
-
-/* LIST container that holds all blog posts */
-.blog-list{
-  max-width: 900px;         /* limit the width so text lines stay readable */
-  margin: 0 auto;           /* center the blog list horizontally */
-  text-align: left;         /* align blog text to the left for readability */
-}
-
-/* Each blog post card / row */
-.blog-item{
-  display: block;            /* make the whole card clickable as a block element */
-  background: #fff;         /* white background for the card */
-  padding: 22px 26px;         /* space inside the card (top/bottom 22px, left/right 26px) */
-  border-radius: var(--radius);  /* rounded corners using shared variable */
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06); /* soft shadow to lift the card */
-  text-decoration: none;    /* remove underline from the link */
-  color: inherit;           /* inherit text color instead of default link color */
-  margin-bottom: 18px;      /* space between blog cards */
-  cursor: pointer;          /* mouse pointer on hover to indicate it's clickable */
-}
-
-/* Hover effect when mouse moves over something without clicking on it */
-.blog-item:hover{
-  transform: translateY(-3px); /* move card slightly upward to create interaction */
-  background-color: var(--accent); /* change background to accent color on hover */
-}
-
-/* Blog post title inside each card */
-.blog-item h3{
-  margin: 0 0 10px;         /* remove top margin, add space below title */
-  font-size: 22px;          /* medium heading size */
-  font-weight: 400;         /* normal font weight */
-  letter-spacing: 1px;      /* slight spacing for readability */
-}
-
-/* Short description */
-.blog-item p{
-  margin: 0 0 12px;         /* space below paragraph */
-  color: var(--muted);      /* softer gray color for secondary text */
-  line-height: 1.6;         /* improve readability of text */
-  font-size: 15px;          /* smaller paragraph text */
-}
-
-/* Metadata line (reading time + category) */
-.blog-meta{
-  font-size: 13px;          /* small informational text */
-  color: var(--hero1);      /* accent color to highlight meta info */
-  letter-spacing: 1px;      /* subtle spacing between letters */
-}
-
-/* ---- RESPONSIVE DESIGN ---- */
-
-
-@media (max-width: 700px){
-
-  /* --- MAIN PARTS TEMPLATE FOR WHOLE WEBSITE --- */
+/* =========================================================
+   RESPONSIVE — phones and small tablets
+   ========================================================= */
+@media (max-width: 760px){
 
   .page-wrapper{
-    width: 100%;
-    max-width: none;
     margin: 0;
-    padding: 0;
-    background: transparent;
+    padding: 22px 16px 0;
+    border-radius: 0;
     box-shadow: none;
   }
 
-  .logo{
-    font-size: 28px;
-  }
-
-  .subheader{
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    gap: 12px;
-    padding: 20px 16px;
-  }
-
-  .nav{
-    margin-left: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
-
-  .nav a{
-    font-size: 14px;
-  }
-
-  .contact{
-    font-size: 15px;
-    margin: 0;
-    padding: 10px 18px;
-  }
-
-  footer{
-    font-size: 12px;
-    padding: 0 16px 20px;
-  }
-
-  /* --- HOME PAGE --- */
-
-  .hero{
-    margin: 0;
-    padding: 48px 20px;
-    height: auto;
-  }
-
-  .hero h1{
-    font-size: 18px;
-    line-height: 1.4;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .hero p{
-    font-size: 14px;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-  }
-
-  .featured-post{
-    max-width: 100%;
-    margin: 32px auto;
-    padding: 20px 16px;
-  }
-
-  .featured-post img{
-    width: 100%;
-    max-height: none;
-    display: block;
-    }
-  
-
-  /* --- ABOUT PAGE --- */
-
-  .about-me{
+  .site-header{
     flex-direction: column;
-    gap: 24px;
-    padding: 30px 20px;
+    gap: 10px;
+    margin-bottom: 40px;
+    padding-bottom: 14px;
   }
 
-  .about-me2{
-    flex-direction: column;
-    gap: 24px;
-    padding: 20px;
-  }
+  .logo{ font-size: 26px; }
 
-  .about-content,
-  .aboutme-content1,
-  .aboutme-content2{
-    max-width: 100%;
-  }
+  .nav{ gap: 22px; }
+  .nav a{ font-size: 14px; }
 
-  .about-content h1,
-  .aboutme-content1 h1,
-  .aboutme-content2 h1{
-    font-size: 26px;
-  }
+  footer{ margin: 56px -16px 0; }
 
-  /* --- JOURNAL PAGE --- */
+  .hero h1{ font-size: 28px; }
+  .hero p{ font-size: 16px; }
 
-  .blog{
-    padding: 40px 20px;
-  }
-
-  .blog h1{
-    font-size: 34px;
-  }
-
-  .blog-list{
-    max-width: 100%;
-  }
-
-  .blog-item{
-    padding: 18px;
-  }
-
-  .blog-item h3{
-    font-size: 18px;
-  }
-
-  /* --- CONTACT PAGE --- */
-
-  .contact-img{
+  .featured-card{
+    grid-template-columns: 1fr;
+    gap: 22px;
     padding: 16px;
   }
 
-  .contact-content{
-    max-width: 100%;
-    margin: 24px auto;
-    padding: 0 16px;
-  }
+  .blog h1{ font-size: 30px; }
+  .blog-item{ padding: 20px; }
+  .blog-item h3{ font-size: 20px; }
 
-  .contact-links{
-    gap: 20px;
-    flex-wrap: wrap;
+  /* about: photo on top, text below */
+  .about{ display: block; }
+  .about-photo{
+    position: static;
+    max-width: 300px;
+    margin: 0 auto 36px;
   }
+  .about h2{ font-size: 24px; }
+
+  .contact-img{ margin: 0 0 32px; }
+  .contact-content h1{ font-size: 28px; }
 }
-
- 

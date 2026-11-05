@@ -1,0 +1,180 @@
+/* =========================================================
+   POST TEMPLATE — shared by every blog post page.
+   Load AFTER style.css:
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="post.css">
+   ========================================================= */
+
+.notebook{                       /* the article column */
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- POST HEADER ---------- */
+.post-header{
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.post-tag{                       /* category pill */
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 999px;
+  background: var(--hero2);
+  color: var(--hero1);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.post-date{
+  margin-left: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.post-header h1{
+  font-size: 40px;
+  margin: 16px 0 12px;
+}
+
+.post-sub{
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.post-header::after{             /* three small dots under the header */
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 32px auto 0;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: -16px 0 0 var(--hero2), 16px 0 0 var(--hero2);
+}
+
+/* ---------- BODY TEXT ---------- */
+.post-body p{
+  margin: 0 0 20px;
+}
+
+.post-body h2{
+  font-size: 28px;
+  margin: 46px 0 14px;
+}
+
+.post-body ul{
+  padding-left: 20px;
+  margin: 0 0 22px;
+}
+
+.post-body li{
+  margin-bottom: 8px;
+}
+
+.post-body li::marker{ color: var(--accent); }
+
+.post-body code{
+  font-size: 15px;
+  background: var(--hero2);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+.signature{
+  font-family: var(--head-font);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--hero1);
+  margin-top: 8px;
+}
+
+/* ---------- HIGHLIGHTED NOTE ---------- */
+.note{                           /* large serif quote */
+  margin: 34px 0;
+  padding: 0 8px;
+  text-align: center;
+  font-family: var(--head-font);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--hero1);
+}
+
+.note::before{                   /* small coral quote mark */
+  content: "“";
+  display: block;
+  font-size: 54px;
+  line-height: 0.6;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.note.pink{                      /* second style: blush box */
+  text-align: left;
+  padding: 22px 26px;
+  border-radius: 14px;
+  background: var(--hero2);
+  font-family: var(--body-font);
+  font-style: normal;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.note.pink::before{ content: none; }
+
+.note-title{
+  display: block;
+  font-family: var(--head-font);
+  font-size: 20px;
+  color: var(--hero1);
+  margin-bottom: 4px;
+}
+
+/* ---------- END OF POST NAVIGATION ---------- */
+.post-nav{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 52px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.post-nav a{
+  flex: 1 1 200px;
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.post-nav a:hover{
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.post-nav small{
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.post-nav strong{
+  font-family: var(--head-font);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--hero1);
+}
+
+@media (max-width: 760px){
+  .post-header h1{ font-size: 30px; }
+  .post-body h2{ font-size: 24px; }
+  .note{ font-size: 21px; }
+}

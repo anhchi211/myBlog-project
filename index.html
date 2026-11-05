@@ -3,63 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>My Blog</title>
+    <title>Quiet Growth — a gentle journal</title>
 </head>
 <body>
     <div class="page-wrapper">
-      <!-- SubHeader -->
-      <header class="subheader">
-        <div class="logo">Quiet Growth</div>
-      
-        <nav class="nav">      <!--Navigation menu of a website-->
-          <a href="index.html" class="active">HOME</a>
-          <a href="journal.html" >JOURNAL</a>
-          <a href="about.html">ABOUT</a>
+      <header class="site-header">
+        <a class="logo" href="index.html">Quiet <em>Growth</em></a>
+
+        <nav class="nav" aria-label="Main">
+          <a href="index.html" class="active">Home</a>
+          <a href="journal.html">Journal</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </nav>
-      
-        <a class="contact" href="contact.html">CONTACT</a>
       </header>
-
-      <hr>
       
-      <!-- Header-->
-    <section class="hero">
+      <!-- Intro -->
+      <section class="hero">
         <h1>A gentle journal about learning, building and becoming.</h1>
-        <p><em>Quiet Growth is for students and early-career builders who want calm, <br> 
+        <hr class="divider">
+        <p><em>Quiet Growth is for students and early-career builders who want calm,
           practical notes on learning and building habits.</em></p>
-    </section>
+      </section>
 
-    <section class="featured-post">
+      <section class="featured-post">
+        <h2 class="section-title">Start here</h2>
 
-      <h2>Start Here</h2>
-    
-      <article class="featured-card">
-    
-        <img src="desktop.png" alt="Quiet Growth workspace">
-    
-        <div class="featured-text">
-          <h3>Who I am & why Quiet Growth</h3>
-    
-          <p>
-            A gentle introduction to this blog — my learning journey, <br> my background,
-            and the idea behind Quiet Growth.
-          </p>
-    
-          <a href="highlightPost.html" class="read-more">
-            Read the post →
-          </a>
-        </div>
-    
-      </article>
-    
-    </section>
+        <article class="featured-card">
+          <img src="desktop.png" alt="Chi working on a laptop at her desk">
+
+          <div class="featured-text">
+            <span class="kicker">Featured post · 3 min read</span>
+            <h3>Who I am &amp; why Quiet Growth</h3>
+            <p>A gentle introduction to this blog — my learning journey, my background,
+              and the idea behind Quiet Growth.</p>
+            <a href="highlightPost.html" class="btn">Read the post</a>
+          </div>
+        </article>
+      </section>
 
 
-    <!-- Footer -->
-     <footer>
-       <p> @ 2026 Chi Nguyen. <em> All rights reserved.</em> </p>
-     </footer>
+    <footer>
+        <p>© 2026 Chi Nguyen · Quiet Growth. <em>All rights reserved.</em></p>
+      </footer>
     </div>
 </body>
 </html>

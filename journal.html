@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Journal | Quiet Growth</title>
 </head>
 
 <body>
     <div class="page-wrapper">
-      <!-- SubHeader -->
-      <header class="subheader">
-        <div class="logo">Quiet Growth</div>
-      
-        <nav class="nav">      <!--Navigation menu for my website-->
-          <a href="index.html">HOME</a>
-          <a href="journal.html" class="active">JOURNAL</a>
-          <a href="about.html">ABOUT</a>
+      <header class="site-header">
+        <a class="logo" href="index.html">Quiet <em>Growth</em></a>
+
+        <nav class="nav" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="journal.html" class="active">Journal</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </nav>
-      
-        <a class="contact" href="contact.html">CONTACT</a>
       </header>
-        <hr>
 
 
                 <section class="blog">
@@ -30,13 +30,13 @@
                   
                     <div class="blog-list">
                   
-                      <a class="blog-item" href="#">
+                      <div class="blog-item soon" aria-disabled="true">
                         <div class="blog-text">
                           <h3>I Am Not a Consistent Person</h3>
                           <p>Three short thoughts on discipline, SQL, evening routines—and why systems matter more than mood.</p>
-                          <div class="blog-meta">3 min read · Reflection</div>
+                          <div class="blog-meta">3 min read · Reflection · Coming soon</div>
                         </div>
-                      </a>
+                      </div>
                   
                       <a class="blog-item" href="whatILearnDaily.html">
                         <div class="blog-text">
@@ -46,20 +46,19 @@
                         </div>
                       </a>
                   
-                      <a class="blog-item" href="#">
+                      <div class="blog-item soon" aria-disabled="true">
                         <div class="blog-text">
                           <h3>Mood Is Not a System</h3>
                           <p>Motivation comes and goes. A simple routine stays—if you design it kindly.</p>
-                          <div class="blog-meta">4 min read · Lesson</div>
+                          <div class="blog-meta">4 min read · Lesson · Coming soon</div>
                         </div>
-                      </a>
+                      </div>
                   
                     </div>
                   </section>     
                   
-      <!-- Footer -->
       <footer>
-        <p> @ 2026 Chi Nguyen. <em> All rights reserved.</em> </p>
+        <p>© 2026 Chi Nguyen · Quiet Growth. <em>All rights reserved.</em></p>
       </footer>
     </div>
 </body>

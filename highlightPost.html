@@ -1,451 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Start Here: About Me | Quiet Growth</title>
-  
-  <style>  /*i will put internal CSS for all the blog pages*/
-    :root{ /* CSS variables for consistent styling across the website, easily changing the whole theme in the future */
-       --bg: #f8f3ef;                          /* light cream background for the whole page, behind the page wrapper */
-       --card: #ffffff;
-       --text: #2b2b2b;                         /* black for main text */
-       --muted: #6b6462;                        /* darker gray for secondary text */
-       --border: #eee;                          /* light gray for borders */
-       --accent: #f3a6a0;                       /* coral-pink for buttons */
-       --hero1: #7E4F4F; 
-       --hero2: #fde8e3;
-       --radius: 20px;                          /* border-radius for cards and subheader */
-       --shadow: 0 30px 60px rgba(0,0,0,0.08);  /* soft shadow for cards and subheader */
-     }
-     
-     *{ box-sizing: border-box;}                 /* make sure padding and border are included in the total width and height of elements */
-     
-     body{
-       margin: 0;     
-       background: var(--bg);
-       color: var(--text);
-       font-family: Georgia, "Times New Roman", serif;
-      }
-   
-      /*--- MAIN CONTENT ---*/
-      .blog-post{
-       max-width: 900px;
-       margin: 0 auto;         /* center the post content horizontally */
-       padding: 20px;          /* add some padding around the content */ 
-     }
-     
-     /* FOOTER */
-      footer{
-        text-align: center;
-        color: var(--muted);
-        font-size: 18px;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-      }
-    
-      
-      .page-wrapper {
-        max-width: 1250px;
-        width: 100%;  
-        margin:40px auto;            
-        padding: 40px 60px;               
-        background: var(--card);
-        box-shadow: var(--shadow);
-      }
-
-
-      .subheader{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-
-      
-      .logo{
-        color: var(--hero1);
-        font-size: 35px;
-        font-weight: 300;         
-        letter-spacing: 2px;
-        margin-left: 10px;
-      }
-     
-     /* NAV */
-      .nav{
-        display: flex;
-        gap: 30px;                 
-        margin-left: auto;        
-        align-items: center;
-        
-      }
-      
-      .nav a{               
-        text-decoration: none;
-        color: #555;
-        font-size: 20px;
-        white-space: nowrap;
-      }
-     
-     .nav a.active {        /* applies to the active link */
-      color: var(--hero1);  /* highlight color for the active link */
-      font-weight: 600;     /* make the active link stand out with color and font-weight */
-      }
-     
-     /* BUTTON CONTACT */
-      .contact{
-        background: var(--accent);
-        padding: 10px 20px;  /* top/bottom 10px, left/right 16px to add thickness */
-        border-radius: 999px;
-        font-size: 20px;
-        color: rgb(255,255,255);
-        text-decoration: none;
-      }
-
-      /*--- STYLE FOR THE CONTENT OF POST PAGE ---*/
-   
-      /*--- post-header ---*/
-     .post-header h1{
-       text-align: center;
-       color: var(--hero1);
-       font-size: 35px;
-       margin-bottom: 8px; /* to set space between title and subtitle */
-     }
-   
-     .blog-sub{
-       text-align: center;
-       color: var(--muted);
-       font-size: 18px;
-       font-style: italic;
-       letter-spacing: 0.5px;
-     }
-    
-      /*--- post-hero container ---*/
-     .post-hero{
-       display: flex;
-       justify-content: center;  /* center the content in this container horizontally */
-       position: relative; /* to position the caption absolutely within this container */
-     }
-   
-     .post-hero img{
-       width: 100%; /* make the image take the full width of its container, but not exceed its original size */
-       height: auto; /* maintain the aspect ratio of the image */
-       max-height: 450px; /* limit the height of the image to prevent it from becoming too tall on larger screens */
-       object-fit: cover;
-       border-radius: 20px;
-       box-shadow: var(--shadow);
-     }
-   
-     .post-caption{
-       position: absolute;
-       bottom: 0;
-       left: 0;
-       right: 0;
-       background: rgba(0,0,0,0.35);
-       color: white;
-       text-align: center;
-       padding: 12px;
-       font-style: italic;
-       letter-spacing: 0.5px;
-       }
-     /*--- blog-post-body ---*/
-     .blog-post-body {
-       margin: 20px;
-       line-height: 1.8; /* increase line height for better readability */
-     }
-   
-     h2{
-       color: var(--hero1);
-       font-size: 30px;
-     }
-   
-     /*--- table ---*/
-     .table-wrap{
-       margin: 18px 0 28px;
-       overflow-x: auto; /* allows horizontal scrolling on small screens, preventing layout breakage */
-     }
-     
-     .focus-table{
-       width: 100%;
-       border-collapse: collapse;
-       background: #fff;
-       border: 1px solid #d9d9d9;
-       border-radius: 12px;
-       overflow: hidden;
-       box-shadow: 0 8px 24px rgba(0,0,0,0.04);
-     }
-     
-     .focus-table caption{
-       caption-side: top;
-       text-align: center;
-       color: var(--muted);
-       font-size: 16px;
-       margin-bottom: 14px;
-       letter-spacing: 0.3px;
-     }
-     
-     .focus-table thead th{
-       background: #f3f3f3;
-       color: var(--text);
-       font-size: 18px;
-       font-weight: 700;
-       text-align: left;
-       padding: 16px 28px;
-       border: 1px solid #d9d9d9;
-     }
-     
-     .focus-table tbody td{
-       padding: 16px 28px;
-       font-size: 17px;
-       color: var(--text);
-       border: 1px solid #d9d9d9;
-       vertical-align: middle;
-     }
-     
-     .focus-table tbody tr:hover{
-       background: #faf7f5;
-     }
-     
-     .focus-table tbody td:first-child{
-       font-weight: 700;
-       color: var(--hero1);
-     }
-   
-     /*--- post-actions ---*/
-     .post-actions{
-       display: flex;
-       gap: 16px;
-       margin-top: 24px;
-     }
-   
-    
-   
-     /*--- Responsive design for post page --- */
-     @media (max-width: 700px){
-
-       /* --- MAIN PARTS TEMPLATE FOR WHOLE WEBSITE --- */
-
-        .page-wrapper{
-          width: 100%;
-          max-width: none;
-          margin: 0;
-          padding: 0;
-          background: transparent;
-          box-shadow: none;
-        }
-
-        .logo{
-          font-size: 28px;
-          margin-left: 0;
-        }
-
-        .subheader{
-          flex-wrap: wrap;
-          justify-content: center;
-          text-align: center;
-          gap: 12px;
-          padding: 20px 16px;
-        }
-
-        .nav{
-          margin-left: 0;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 16px;
-        }
-
-        .nav a{
-          font-size: 14px;
-        }
-
-        .contact{
-          font-size: 15px;
-          margin: 0;
-          padding: 10px 18px;
-        }
-
-        footer{
-          font-size: 12px;
-          padding: 0 16px 20px;
-        }
-
-       /*--- CONTENT OF FEATURE POST PAGE ---*/
-
-    
-      .blog-post{
-        width: 100%;
-        padding: 20px 16px 28px;
-      }
-    
-      .post-header h1{
-        font-size: 28px;
-        line-height: 1.3;
-        margin-bottom: 10px;
-      }
-    
-      .blog-sub{
-        font-size: 15px;
-        line-height: 1.6;
-        padding: 0 8px;
-      }
-    
-      .post-hero{
-        padding: 0;
-      }
-    
-      .post-hero img{
-        width: 100%;
-        max-height: none;
-        border-radius: 0;
-      }
-    
-      .post-caption{
-        font-size: 12px;
-        letter-spacing: 0.5px;
-        padding: 10px;
-      }
-    
-      .blog-post-body{
-        margin: 20px 0 0;
-      }
-    
-      h2{
-        font-size: 24px;
-      }
-    
-    
-      .focus-table{
-        min-width: 460px;
-      }
-    
-      .focus-table th,
-      .focus-table td{
-        padding: 10px;
-        font-size: 14px;
-      }
-    
-      .post-actions{
-        flex-direction: column;
-        gap: 12px;
-      }
-    }
-    
-   </style>
+  <title>The Story Behind Quiet Growth | Quiet Growth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">  <!-- shared header, nav, footer -->
+  <link rel="stylesheet" href="post.css">   <!-- shared post template -->
 </head>
 
 <body>
   <div class="page-wrapper">
 
-    <!-- SubHeader -->
-    <header class="subheader">
-      <div class="logo">Quiet Growth</div>
-    
-      <nav class="nav">      <!--Navigation menu of a website-->
-        <a href="index.html">HOME</a>
-        <a href="journal.html" >JOURNAL</a>
-        <a href="about.html">ABOUT</a>
-      </nav>
-    
-      <a class="contact" href="contact.html">CONTACT</a>
-    </header> 
+    <header class="site-header">
+        <a class="logo" href="index.html">Quiet <em>Growth</em></a>
 
-    <hr>
+        <nav class="nav" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="journal.html" class="active">Journal</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
 
     <main>
-      <article class="blog-post" aria-label="Post">
+      <article class="notebook" aria-label="Post">
         <header class="post-header">
-          <h1> The Story Behind Quiet Growth</h1>
-          <p class="blog-sub">A gentle journal about learning, building, and becoming.</p>
+          <span class="post-tag">Start here</span>
+          <span class="post-date">3 min read</span>
+          <h1>The Story Behind Quiet Growth</h1>
+          <p class="post-sub">A gentle journal about learning, building, and becoming.</p>
         </header>
 
-      
-
-        <!-- Hero image for the post -->
-        <figure class="post-hero">
-          <img
-            src="desktop.png"
-            alt="Portrait photo of me working on computer">
-          <figcaption class="post-caption">
-            A small moment that feels like “quiet growth”.
-          </figcaption>
-        </figure>
-
-        <section class="blog-post-body">
+        <section class="post-body">
           <h2>Hi, I’m Chi</h2>
-          <p>
-            I’m currently studying in Finland and pursuing a second degree. My academic background started in International Business, where I developed an interest in how organizations work, how decisions are made, and how businesses grow. <br>
+          <p>I’m currently studying in Finland and pursuing a second degree. My academic background started in International Business, where I developed an interest in how organizations work, how decisions are made, and how businesses grow.</p>
+          <p>Over time, my curiosity gradually shifted toward the technology side of business — especially data, digital tools, and how technology supports better decisions.</p>
+          <p>Because of that, I decided to move slightly in a new direction and start learning more about technology and analytics. I’m currently exploring areas like web development, data analysis, and IT business analysis.</p>
+          <p>Quiet Growth is where I document that learning journey — the small things I study, the tools I experiment with, and the ideas I discover along the way.</p>
 
-            Over time, my curiosity gradually shifted toward the technology side of business — especially data, digital tools, and how technology supports better decisions. <br>
+          <div class="note">I’m not writing as an expert. I’m simply sharing what I learn, step by step.</div>
 
-            Because of that, I decided to move slightly in a new direction and start learning more about technology and analytics. I’m currently exploring areas like web development, data analysis, and IT business analysis. <br>
-
-            Quiet Growth is where I document that learning journey — the small things I study, the tools I experiment with, and the ideas I discover along the way. <br>
-
-            I’m not writing as an expert. I’m simply sharing what I learn, step by step. <br>
-
-            If you enjoy calm progress and thoughtful learning, you’ll probably feel at home here. <br> <br>
-
-           <em> — Chi, writing from Finland </em>
-          </p>
+          <p>If you enjoy calm progress and thoughtful learning, you’ll probably feel at home here.</p>
+          <p class="signature">— Chi, writing from Finland</p>
 
           <h2>What you’ll find here</h2>
-          <ul>
-            <li>Short learning notes about IT Business Analysis</li>
-            <li>Weekly reflections and small experiments about learning method</li>
-            <li>Resources I actually use (books, tools, templates)</li>
-          </ul>
+          <p>Most of what I share here are short learning notes about IT Business Analysis. Alongside them, I write weekly reflections and small experiments with different learning methods — what worked, what didn’t, and what I’ll try next. From time to time, I also share the resources I actually use, like books, tools, and templates.</p>
 
           <h2>My current focus</h2>
+          <p>Right now I’m focusing on three areas, and I update this roadmap every month. On the web side, I’m learning HTML and CSS so I can manage this website myself. In analytics, I’m practicing how to write user stories, with the goal of building one portfolio dashboard. And for languages, I keep up a daily writing practice in Finnish and Swedish.</p>
 
-          <!-- Wrap table for mobile -->
-          <div class="table-wrap">         <!-- allows horizontal scrolling on small screens, preventing layout breakage -->
-            <table class="focus-table">    <!-- table is an element that defines a table in HTML. The class "focus-table" is used to apply specific styles to this table, such as borders, padding, and background color. -->
-              <caption>Learning roadmap — updated monthly</caption>
-             
-                <tr>   <!-- table row element that defines a row in the table.-->
-                  <th scope="col">Area</th>
-                  <th scope="col">Skill</th>
-                  <th scope="col">Goal</th>
-                </tr>
-              
-              <tbody> <!-- table body element that groups the main content of the table. It contains multiple rows of data. -->
-                <tr>
-                  <td>Web</td>
-                  <td>HTML, CSS</td>
-                  <td>For managing this website</td>
-                </tr>
-                <tr>
-                  <td>Analytics</td>
-                  <td>Create User Stories</td>
-                  <td>1 portfolio dashboard</td>
-                </tr>
-                <tr>
-                  <td>Language</td>
-                  <td>Finnish / Swedish</td>
-                  <td>Daily writing practice</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="note pink">
+            <span class="note-title">Start exploring</span>
+            The easiest path: begin with the journal, or read the About page for a quicker summary.
           </div>
 
-          <h2>Start exploring</h2>
-          <p>
-            If you want the easiest path: begin with the blog, or read the About page for a quicker summary.
-          </p>
-
-          <div class="post-actions">
-            <a href="journal.html">Go to Blog</a> 
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-          </div>
+          <nav class="post-nav" aria-label="More posts">
+            <a href="journal.html"><small>← back to</small><strong>All journal notes</strong></a>
+            <a href="whatILearnDaily.html"><small>read next →</small><strong>What I Learn Daily</strong></a>
+            <a href="about.html"><small>or</small><strong>About me</strong></a>
+          </nav>
         </section>
       </article>
     </main>
 
     <footer>
-      <p> @ 2026 Chi Nguyen. <em> All rights reserved.</em> </p>
-    </footer>
+        <p>© 2026 Chi Nguyen · Quiet Growth. <em>All rights reserved.</em></p>
+      </footer>
   </div>
 </body>
 </html>
-
