@@ -416,13 +416,6 @@ main > *, .page-wrapper > section{
   color: var(--muted);
 }
 
-.blog-item.soon{                 /* posts that are not written yet */
-  pointer-events: none;
-  background: var(--soft);
-  border-style: dashed;
-}
-
-.blog-item.soon h3{ color: var(--muted); }
 
 /* =========================================================
    ABOUT PAGE
