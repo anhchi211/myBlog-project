@@ -2,21 +2,21 @@
    QUIET GROWTH — shared stylesheet for every page
    Clean, airy layout in Quiet Growth's own warm palette:
    Lora (serif) for headings, Lato for reading,
-   rose-brown and coral accents on cream.
+   espresso and terracotta accents on warm ivory.
    ========================================================= */
 
 :root{ /* CSS variables: change these to re-theme the whole site */
-  --bg: #f8f3ef;          /* light cream behind the page */
-  --card: #ffffff;        /* white page */
-  --text: #2b2b2b;        /* main text */
-  --muted: #7a716f;       /* secondary text */
-  --line: #eee4dc;        /* thin divider lines */
-  --soft: #fbf6f2;        /* very light cream panels */
-  --hero1: #7E4F4F;       /* rose-brown: headings, logo, links */
-  --hero2: #fde8e3;       /* blush: highlights */
-  --accent: #f3a6a0;      /* coral: buttons, small accents */
-  --radius: 18px;
-  --shadow: 0 24px 60px rgba(126,79,79,0.08);
+  --bg: #f3efe9;          /* warm stone behind the page */
+  --card: #fffdf9;        /* ivory page */
+  --text: #2a2623;        /* deep charcoal text */
+  --muted: #6e6660;       /* secondary text */
+  --line: #e3dcd2;        /* thin divider lines */
+  --soft: #f7f3ed;        /* light sand panels */
+  --hero1: #3b2f2a;       /* espresso: headings, logo, buttons */
+  --hero2: #ece4d9;       /* sand: quiet highlights */
+  --accent: #8a4b36;      /* muted terracotta: links, small accents */
+  --radius: 14px;
+  --shadow: 0 20px 50px rgba(42,38,35,0.07);
   --body-font: "Lato", "Helvetica Neue", Arial, sans-serif;
   --head-font: "Lora", Georgia, "Times New Roman", serif;
 }
@@ -35,9 +35,9 @@ body{
 img{ max-width: 100%; }
 
 a{
-  color: var(--hero1);
+  color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: var(--accent);
+  text-decoration-color: rgba(138,75,54,0.4);
   text-underline-offset: 3px;
 }
 
@@ -84,6 +84,7 @@ h1, h2, h3{
 .logo em{
   font-style: italic;
   color: var(--accent);
+  font-weight: 400;
 }
 
 .nav{
@@ -105,9 +106,8 @@ h1, h2, h3{
   left: 0;
   right: 0;
   bottom: -2px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--accent);
+  height: 1px;
+  background: var(--hero1);
   transform: scaleX(0);
   transition: transform 0.2s ease;
 }
@@ -137,151 +137,277 @@ footer p{ margin: 0; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--muted);
   text-align: center;
   margin: 0 0 28px;
 }
 
-.divider{                        /* three small dots */
-  width: 6px;
-  height: 6px;
+.divider{                        /* short centered line */
+  width: 48px;
+  height: 1px;
   margin: 28px auto;
   border: 0;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: -16px 0 0 var(--hero2), 16px 0 0 var(--hero2);
+  background: var(--hero1);
 }
 
 .btn{                            /* rounded pill button */
   display: inline-block;
   padding: 11px 26px;
   border-radius: 999px;
-  border: 1.5px solid var(--accent);
-  font-size: 15px;
+  border: 1px solid var(--hero1);
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   color: var(--hero1);
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .btn:hover{
-  background: var(--hero2);
-  transform: translateY(-2px);
-}
-
-.btn.btn-dark{
-  background: var(--accent);
+  background: var(--hero1);
   color: #fff;
 }
 
-.btn.btn-dark:hover{ background: var(--hero1); border-color: var(--hero1); }
+.btn.btn-dark{
+  background: var(--hero1);
+  color: #fff;
+}
+
+.btn.btn-dark:hover{ background: var(--accent); border-color: var(--accent); }
+
+/* =========================================================
+   LIVELY EXTRAS (shared)
+   ========================================================= */
+
+h1 em, h2 em{                    /* italic coral accent word in headings */
+  font-style: italic;
+  color: var(--accent);
+}
+
+.eyebrow{                        /* small label above big headings */
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.tag{                            /* small uppercase category label */
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* gentle fade-up when the page loads */
+@keyframes fade-up{
+  from{ opacity: 0; transform: translateY(18px); }
+  to{ opacity: 1; transform: none; }
+}
+
+main > *, .page-wrapper > section{
+  animation: fade-up 0.7s ease both;
+}
+.page-wrapper > section:nth-of-type(2){ animation-delay: 0.12s; }
+.page-wrapper > section:nth-of-type(3){ animation-delay: 0.24s; }
+.page-wrapper > section:nth-of-type(4){ animation-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
 
 /* =========================================================
    HOME PAGE
    ========================================================= */
 .hero{
-  max-width: 680px;
-  margin: 0 auto 72px;
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 90px;
+  padding: 30px 0 10px;
   text-align: center;
 }
 
+
 .hero h1{
-  font-size: 38px;
-  margin: 0;
+  font-size: 52px;
+  line-height: 1.15;
+  margin: 0 0 20px;
 }
 
 .hero p{
+  max-width: 560px;
+  margin: 0 auto;
   color: var(--muted);
-  font-size: 18px;
-  margin: 0;
+  font-size: 19px;
 }
 
-.featured-post{
-  max-width: 900px;
-  margin: 0 auto;
+.hero-actions{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.page-wrapper{ position: relative; z-index: 0; }   /* keeps hero circles inside the page */
+
+.featured-post,
+.latest{
+  max-width: 940px;
+  margin: 0 auto 90px;
 }
 
 .featured-card{
   display: grid;
   grid-template-columns: 5fr 6fr;
-  gap: 48px;
+  gap: 52px;
   align-items: center;
-  padding: 28px;
-  background: var(--soft);
+  padding: 36px;
   border-radius: var(--radius);
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+
+.featured-img{
+  position: relative;
+}
+
+.featured-img::before{           /* coral frame peeking out behind the photo */
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--hero1);
+  border-radius: 10px;
 }
 
 .featured-card img{
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
-  border-radius: 12px;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
 }
 
-.featured-text .kicker{
-  font-size: 13px;
-  color: var(--muted);
-}
+.featured-card:hover img{ transform: translate(-4px, -4px); }
 
 .featured-text h3{
-  font-size: 26px;
-  margin: 6px 0 14px;
+  font-size: 30px;
+  margin: 14px 0 12px;
 }
 
 .featured-text p{
   margin: 0 0 26px;
 }
 
+.latest .blog-list{ grid-template-columns: repeat(2, 1fr); }
+
+.latest-more{
+  text-align: center;
+  margin: 26px 0 0;
+  font-weight: 700;
+}
+
+.hello{                          /* small "Hi, I'm Chi" strip */
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 32px 36px;
+  border-radius: var(--radius);
+  background: var(--soft);
+  border: 1px solid var(--line);
+}
+
+.hello-photo{                    /* round frame, zoomed in on the face */
+  flex: none;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--card);
+  box-shadow: 0 0 0 1px var(--hero1);
+}
+
+.hello-photo img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2.3);
+  transform-origin: 50% 38%;
+}
+
+.hello h2{
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+
+.hello p{ margin: 0 0 18px; }
+
 /* =========================================================
-   JOURNAL PAGE
+   JOURNAL PAGE (cards are also used on the home page)
    ========================================================= */
 .blog{
-  max-width: 800px;
+  max-width: 940px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .blog h1{
-  text-align: center;
-  font-size: 38px;
-  margin: 0 0 4px;
+  font-size: 46px;
+  margin: 0 0 6px;
 }
 
 .blog-sub{
-  text-align: center;
   color: var(--muted);
   font-style: italic;
-  margin: 0 0 44px;
+  margin: 0 0 48px;
 }
 
 .blog-list{
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  text-align: left;
 }
 
 .blog-item{
-  display: block;
-  padding: 24px 28px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 24px;
+  border-radius: var(--radius);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 14px;
   color: var(--text);
   text-decoration: none;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+
 
 .blog-item:hover{
-  border-color: var(--accent);
-  background: var(--soft);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  border-color: var(--hero1);
+  box-shadow: var(--shadow);
 }
 
+
 .blog-item h3{
-  font-size: 22px;
-  margin: 0 0 6px;
+  font-size: 23px;
+  margin: 14px 0 8px;
 }
 
 .blog-item p{
-  margin: 0 0 10px;
+  flex: 1;
+  margin: 0 0 16px;
   color: #4a4442;
 }
 
@@ -292,6 +418,7 @@ footer p{ margin: 0; }
 
 .blog-item.soon{                 /* posts that are not written yet */
   pointer-events: none;
+  background: var(--soft);
   border-style: dashed;
 }
 
@@ -323,7 +450,7 @@ footer p{ margin: 0; }
   display: block;
   width: 100%;
   border-radius: var(--radius);
-  box-shadow: 14px 14px 0 var(--hero2);   /* blush block offset behind the photo */
+  box-shadow: 12px 12px 0 var(--hero2);   /* sand block offset behind the photo */
 }
 
 .about h2{
@@ -411,18 +538,32 @@ footer p{ margin: 0; }
 
   footer{ margin: 56px -16px 0; }
 
-  .hero h1{ font-size: 28px; }
+  .hero{ margin-bottom: 64px; padding-top: 10px; }
+  .hero h1{ font-size: 34px; }
   .hero p{ font-size: 16px; }
+
+  .featured-post, .latest{ margin-bottom: 64px; }
 
   .featured-card{
     grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 16px;
+    gap: 30px;
+    padding: 22px 22px 28px;
   }
+  .featured-text h3{ font-size: 24px; }
 
-  .blog h1{ font-size: 30px; }
-  .blog-item{ padding: 20px; }
+  .blog h1{ font-size: 32px; }
+  .blog-list,
+  .latest .blog-list{ grid-template-columns: 1fr; }
+  .blog-item{ padding: 24px 20px 20px; }
   .blog-item h3{ font-size: 20px; }
+
+  .hello{
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    padding: 26px 20px;
+  }
+  .hello-photo{ width: 120px; height: 120px; }
 
   /* about: photo on top, text below */
   .about{ display: block; }

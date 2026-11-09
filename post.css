@@ -16,15 +16,12 @@
   margin-bottom: 48px;
 }
 
-.post-tag{                       /* category pill */
-  display: inline-block;
-  padding: 3px 14px;
-  border-radius: 999px;
-  background: var(--hero2);
-  color: var(--hero1);
-  font-size: 13px;
+.post-tag{                       /* category label */
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .post-date{
@@ -45,15 +42,13 @@
   margin: 0;
 }
 
-.post-header::after{             /* three small dots under the header */
+.post-header::after{             /* short line under the header */
   content: "";
   display: block;
-  width: 6px;
-  height: 6px;
+  width: 48px;
+  height: 1px;
   margin: 32px auto 0;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: -16px 0 0 var(--hero2), 16px 0 0 var(--hero2);
+  background: var(--hero1);
 }
 
 /* ---------- BODY TEXT ---------- */
@@ -177,4 +172,39 @@
   .post-header h1{ font-size: 30px; }
   .post-body h2{ font-size: 24px; }
   .note{ font-size: 21px; }
+}
+
+/* ---------- PHOTOS IN A POST ---------- */
+.post-figure{
+  margin: 36px auto;
+  max-width: 520px;
+}
+
+.post-figure img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 12px 12px 0 var(--hero2);   /* sand block offset behind the photo */
+}
+
+.post-figure figcaption{
+  margin-top: 22px;
+  text-align: center;
+  font-family: var(--head-font);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px){
+  .post-figure{ margin: 28px auto; }
+  .post-figure img{ box-shadow: 8px 8px 0 var(--hero2); }
+}
+
+.post-figure .fig-date{
+  font-family: var(--body-font);
+  font-style: normal;
+  font-size: 13px;
+  white-space: nowrap;
 }
