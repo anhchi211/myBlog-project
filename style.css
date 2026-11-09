@@ -58,7 +58,8 @@ h1, h2, h3{
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  overflow: hidden;              /* keeps the footer inside the rounded corners */
+  overflow: hidden;              /* keeps the footer inside the rounded corners (older browsers) */
+  overflow: clip;                /* same, but still lets the About photo stay sticky */
 }
 
 /* ---------- HEADER: wordmark left, links right ---------- */
@@ -434,8 +435,9 @@ main > *, .page-wrapper > section{
 .about-photo{                         /* ...except the photo, which stays on the left */
   grid-column: 1;
   grid-row: 1 / span 20;
+  align-self: start;                   /* don't stretch, so it can stick */
   position: sticky;
-  top: 24px;
+  top: 32px;                            /* stays in view while the text scrolls */
   margin: 0;
 }
 
